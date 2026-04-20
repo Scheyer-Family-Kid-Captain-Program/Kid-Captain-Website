@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scheyer Family Kid Captain Program</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --duke-blue: #003087;
+    --duke-blue-dark: #001a4d;
+    --duke-blue-mid: #00408a;
+    --gold: #B5A642;
+    --gold-light: #d4c35a;
+    --white: #ffffff;
+    --off-white: #f7f5f0;
+    --light-gray: #e8e4dc;
+    --text-dark: #0a0a14;
+    --text-mid: #3a3a4a;
+    --text-light: #7a7a8a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(0, 48, 135, 0.97);
+    backdrop-filter: blur(12px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+    border-bottom: 2px solid rgba(181,166,66,0.3);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.01em;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-crown { font-size: 1.4rem; }
+  .nav-links { display: flex; gap: 2rem; align-items: center; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85); text-decoration: none;
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.04em;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold); color: var(--duke-blue) !important;
+    padding: 8px 20px; border-radius: 30px;
+    font-weight: 600 !important;
+  }
+  .nav-cta:hover { background: var(--gold-light); color: var(--duke-blue) !important; }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: white; display: block; }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--duke-blue-dark) 0%, var(--duke-blue) 50%, #00408a 100%);
+    display: flex; align-items: center;
+    padding: 0 5%;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 20% 50%, rgba(181,166,66,0.08) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                      radial-gradient(circle at 60% 80%, rgba(181,166,66,0.05) 0%, transparent 40%);
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 700px;
+    animation: fadeUp 0.9s ease both;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(181,166,66,0.15); border: 1px solid rgba(181,166,66,0.4);
+    color: var(--gold); padding: 6px 16px; border-radius: 30px;
+    font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero-badge::before { content: '♛'; font-size: 0.9rem; }
+  h1.hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 900; line-height: 1.05;
+    color: var(--white); margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  h1.hero-title em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-size: 1.15rem; color: rgba(255,255,255,0.75);
+    line-height: 1.7; margin-bottom: 2.5rem; max-width: 540px;
+    font-weight: 300;
+  }
+  .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold); color: var(--duke-blue);
+    padding: 14px 32px; border-radius: 50px; font-weight: 600;
+    font-size: 0.95rem; letter-spacing: 0.03em; cursor: pointer;
+    border: none; text-decoration: none; display: inline-block;
+    transition: all 0.25s; box-shadow: 0 4px 24px rgba(181,166,66,0.35);
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(181,166,66,0.45); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 14px 32px; border-radius: 50px; font-weight: 500;
+    font-size: 0.95rem; border: 1.5px solid rgba(255,255,255,0.4);
+    text-decoration: none; display: inline-block; cursor: pointer;
+    transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.07); transform: translateY(-2px); }
+  .hero-stats {
+    position: absolute; bottom: 50px; left: 5%; right: 5%;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: rgba(255,255,255,0.1); border-radius: 16px; overflow: hidden;
+    z-index: 2;
+  }
+  .hero-stat {
+    padding: 20px 24px; background: rgba(0,48,135,0.7);
+    text-align: center;
+    backdrop-filter: blur(10px);
+  }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--gold);
+  }
+  .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.65); margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* ABOUT */
+  #about {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--duke-blue); font-size: 0.78rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    border-bottom: 2px solid var(--gold); padding-bottom: 4px;
+    margin-bottom: 1.2rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 700;
+    line-height: 1.15; color: var(--duke-blue-dark);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { color: var(--gold); font-style: normal; }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: center;
+  }
+  .about-text p {
+    font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+    margin-bottom: 1.2rem; font-weight: 300;
+  }
+  .about-text strong { color: var(--duke-blue); font-weight: 600; }
+  .about-visual {
+    position: relative; height: 480px; border-radius: 24px; overflow: hidden;
+  }
+  .about-visual-inner {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, var(--duke-blue) 0%, #0050b3 40%, var(--duke-blue-mid) 100%);
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px; color: white; text-align: center; padding: 2rem;
+  }
+  .about-visual-icon { font-size: 5rem; margin-bottom: 0.5rem; }
+  .about-visual-text { font-family: 'Playfair Display', serif; font-size: 1.5rem; opacity: 0.9; }
+  .about-visual-sub { font-size: 0.9rem; opacity: 0.65; max-width: 220px; }
+  .about-visual::after {
+    content: ''; position: absolute; bottom: -2px; right: -2px;
+    width: 120px; height: 120px;
+    background: var(--gold); border-radius: 50%;
+    opacity: 0.15;
+  }
+  .mission-banner {
+    margin-top: 5rem; padding: 3rem;
+    background: linear-gradient(135deg, var(--duke-blue) 0%, var(--duke-blue-mid) 100%);
+    border-radius: 20px; text-align: center; position: relative; overflow: hidden;
+  }
+  .mission-banner::before {
+    content: '♛'; position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
+    font-size: 8rem; opacity: 0.06; color: white;
+  }
+  .mission-banner h3 {
+    font-family: 'Playfair Display', serif;
+    color: white; font-size: 1.8rem; margin-bottom: 0.8rem;
+  }
+  .mission-banner p { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 600px; margin: 0 auto; }
+
+  /* REACH MORE */
+  #reach {
+    padding: 100px 5%;
+    background: var(--off-white);
+  }
+  .reach-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+  }
+  .reach-card {
+    background: white; border-radius: 20px; padding: 2rem;
+    border: 1px solid var(--light-gray);
+    transition: all 0.3s; position: relative; overflow: hidden;
+  }
+  .reach-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: linear-gradient(90deg, var(--duke-blue), var(--gold));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .reach-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,48,135,0.12); }
+  .reach-card:hover::before { transform: scaleX(1); }
+  .reach-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+  .reach-card h4 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--duke-blue); margin-bottom: 0.7rem; }
+  .reach-card p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* CALENDAR */
+  #calendar {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+  .calendar-filters {
+    display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2rem; margin-top: 2rem;
+  }
+  .filter-btn {
+    padding: 8px 18px; border-radius: 30px; border: 1.5px solid var(--light-gray);
+    background: white; font-size: 0.82rem; font-weight: 500; cursor: pointer;
+    transition: all 0.2s; font-family: 'DM Sans', sans-serif;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--duke-blue); color: white; border-color: var(--duke-blue);
+  }
+  .calendar-nav {
+    display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem;
+  }
+  .cal-month-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; color: var(--duke-blue); min-width: 200px;
+  }
+  .cal-arrow {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid var(--light-gray); background: white;
+    cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s;
+  }
+  .cal-arrow:hover { background: var(--duke-blue); color: white; border-color: var(--duke-blue); }
+  .calendar-grid-header {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    text-align: center; margin-bottom: 0.5rem;
+  }
+  .cal-day-name {
+    font-size: 0.75rem; font-weight: 600; color: var(--text-light);
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 0;
+  }
+  .calendar-grid {
+    display: grid; grid-template-columns: repeat(7, 1fr);
+    gap: 3px; border: 1px solid var(--light-gray); border-radius: 16px; overflow: hidden;
+  }
+  .cal-cell {
+    min-height: 90px; background: white; padding: 6px;
+    border: 0.5px solid var(--light-gray); position: relative;
+    transition: background 0.2s;
+  }
+  .cal-cell:hover { background: #f0f4ff; }
+  .cal-cell.other-month { background: #f9f9fb; }
+  .cal-cell.today { background: #e8f0ff; }
+  .cal-date {
+    font-size: 0.8rem; font-weight: 600; color: var(--text-mid);
+    display: inline-flex; width: 24px; height: 24px; align-items: center; justify-content: center;
+    border-radius: 50%;
+  }
+  .cal-cell.today .cal-date {
+    background: var(--duke-blue); color: white;
+  }
+  .cal-event {
+    display: block; font-size: 0.7rem; padding: 2px 5px; border-radius: 4px;
+    margin-top: 2px; cursor: pointer; font-weight: 500;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    transition: opacity 0.2s;
+  }
+  .cal-event:hover { opacity: 0.8; }
+  .event-hospital { background: #e0f0ff; color: #003087; }
+  .event-training { background: #e8f5e8; color: #1a5c1a; }
+  .event-gameday { background: #fff3cd; color: #7a5200; }
+  .event-community { background: #f3e8ff; color: #5a1a7a; }
+
+  /* EVENT MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+    z-index: 2000; display: none; align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: white; border-radius: 24px; padding: 2.5rem;
+    max-width: 500px; width: 100%; position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.25);
+    animation: fadeUp 0.3s ease;
+  }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    width: 32px; height: 32px; border-radius: 50%; border: none;
+    background: var(--light-gray); cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: #ddd; }
+  .modal-event-type {
+    display: inline-block; padding: 4px 12px; border-radius: 20px;
+    font-size: 0.75rem; font-weight: 600; margin-bottom: 1rem;
+  }
+  .modal h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--duke-blue); margin-bottom: 0.5rem; }
+  .modal-date { color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem; }
+  .modal p { color: var(--text-mid); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .modal-details { background: var(--off-white); border-radius: 12px; padding: 1rem; margin-bottom: 1.5rem; }
+  .modal-detail-row { display: flex; gap: 0.5rem; font-size: 0.85rem; color: var(--text-mid); margin-bottom: 0.4rem; }
+  .modal-detail-row strong { color: var(--text-dark); }
+
+  /* VOLUNTEER PATH */
+  #volunteer {
+    padding: 100px 5%;
+    background: linear-gradient(180deg, var(--duke-blue-dark) 0%, var(--duke-blue) 100%);
+    position: relative; overflow: hidden;
+  }
+  #volunteer .section-eyebrow { color: var(--gold); border-bottom-color: var(--gold); }
+  #volunteer .section-title { color: white; }
+  .vol-intro { color: rgba(255,255,255,0.75); font-size: 1.05rem; max-width: 600px; margin-bottom: 4rem; line-height: 1.7; font-weight: 300; }
+  .vol-path {
+    display: flex; gap: 0; align-items: stretch; position: relative;
+  }
+  .vol-path::before {
+    content: ''; position: absolute; top: 40px; left: 40px; right: 40px; height: 2px;
+    background: rgba(181,166,66,0.3); z-index: 0;
+  }
+  .vol-step {
+    flex: 1; text-align: center; padding: 0 1rem; position: relative; z-index: 1;
+  }
+  .vol-step-num {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--duke-blue-dark); border: 2px solid var(--gold);
+    color: var(--gold); font-family: 'Playfair Display', serif;
+    font-size: 1.6rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.2rem; position: relative;
+    transition: all 0.3s;
+  }
+  .vol-step:hover .vol-step-num {
+    background: var(--gold); color: var(--duke-blue);
+  }
+  .vol-step h4 { color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .vol-step p { color: rgba(255,255,255,0.6); font-size: 0.82rem; line-height: 1.6; }
+  .vol-tracks {
+    margin-top: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .vol-track {
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 16px; padding: 1.5rem;
+  }
+  .vol-track-badge {
+    display: inline-block; padding: 4px 12px; border-radius: 20px;
+    font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .badge-athlete { background: rgba(181,166,66,0.2); color: var(--gold-light); }
+  .badge-community { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); }
+  .vol-track h4 { color: white; font-size: 1rem; margin-bottom: 0.5rem; }
+  .vol-track p { color: rgba(255,255,255,0.6); font-size: 0.85rem; line-height: 1.6; }
+  .vol-cta { margin-top: 3rem; text-align: center; }
+
+  /* DONORS */
+  #donors {
+    padding: 100px 5%;
+    background: var(--off-white);
+  }
+  .donor-hero-text {
+    text-align: center; max-width: 700px; margin: 0 auto 4rem;
+  }
+  .donor-hero-text p { font-size: 1.1rem; color: var(--text-mid); line-height: 1.7; margin-top: 1rem; font-weight: 300; }
+  .donor-tiers {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem;
+  }
+  .donor-tier {
+    background: white; border-radius: 24px; padding: 2rem;
+    border: 1.5px solid var(--light-gray); position: relative;
+    transition: all 0.3s; overflow: hidden;
+  }
+  .donor-tier.featured {
+    border-color: var(--gold); background: linear-gradient(135deg, var(--duke-blue) 0%, var(--duke-blue-mid) 100%);
+  }
+  .donor-tier:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,48,135,0.15); }
+  .tier-badge {
+    display: inline-block; padding: 4px 14px; border-radius: 20px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 1rem;
+    background: var(--off-white); color: var(--text-mid);
+  }
+  .donor-tier.featured .tier-badge { background: rgba(181,166,66,0.2); color: var(--gold); }
+  .tier-name {
+    font-family: 'Playfair Display', serif; font-size: 1.4rem;
+    color: var(--duke-blue); margin-bottom: 0.3rem;
+  }
+  .donor-tier.featured .tier-name { color: white; }
+  .tier-amount {
+    font-size: 2.2rem; font-weight: 700; color: var(--gold); margin-bottom: 1rem;
+  }
+  .tier-amount span { font-size: 1rem; color: var(--text-light); font-weight: 400; }
+  .donor-tier.featured .tier-amount span { color: rgba(255,255,255,0.5); }
+  .tier-features { list-style: none; margin-bottom: 1.5rem; }
+  .tier-features li {
+    font-size: 0.88rem; color: var(--text-mid); padding: 5px 0;
+    display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+  }
+  .donor-tier.featured .tier-features li { color: rgba(255,255,255,0.75); }
+  .tier-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .donor-options {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem;
+  }
+  .donor-option {
+    background: white; border-radius: 16px; padding: 1.5rem;
+    border: 1px solid var(--light-gray); text-align: center;
+    transition: all 0.3s; cursor: pointer;
+  }
+  .donor-option:hover { border-color: var(--duke-blue); box-shadow: 0 8px 32px rgba(0,48,135,0.1); }
+  .donor-option-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+  .donor-option h4 { font-size: 1rem; color: var(--duke-blue); margin-bottom: 0.4rem; font-weight: 600; }
+  .donor-option p { font-size: 0.83rem; color: var(--text-light); line-height: 1.5; }
+  .alumni-appeal {
+    background: linear-gradient(135deg, var(--duke-blue-dark), var(--duke-blue));
+    border-radius: 24px; padding: 3rem; display: grid;
+    grid-template-columns: 1fr auto; gap: 3rem; align-items: center;
+  }
+  .alumni-appeal h3 {
+    font-family: 'Playfair Display', serif;
+    color: white; font-size: 1.8rem; margin-bottom: 0.8rem;
+  }
+  .alumni-appeal p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; max-width: 500px; }
+  .alumni-appeal-right { text-align: center; min-width: 180px; }
+  .qr-placeholder {
+    width: 120px; height: 120px; background: white; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; font-size: 0.75rem; color: var(--text-light);
+    text-align: center; padding: 1rem;
+  }
+  .alumni-appeal-right p { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
+
+  /* KIDS HUB */
+  #kidshub {
+    padding: 100px 5%;
+    background: var(--white);
+  }
+  .stories-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem;
+  }
+  .story-card {
+    border-radius: 20px; overflow: hidden; cursor: pointer;
+    transition: all 0.3s; position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+  .story-card:hover { transform: translateY(-4px) scale(1.01); box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
+  .story-img {
+    height: 200px; display: flex; align-items: center; justify-content: center;
+    font-size: 4rem; position: relative;
+  }
+  .story-img-1 { background: linear-gradient(135deg, #003087, #0060cc); }
+  .story-img-2 { background: linear-gradient(135deg, #1a5c1a, #2e9e2e); }
+  .story-img-3 { background: linear-gradient(135deg, #7a1a4a, #cc2e7a); }
+  .story-img-4 { background: linear-gradient(135deg, #7a5200, #cc8800); }
+  .story-img-5 { background: linear-gradient(135deg, #003087, #005087); }
+  .story-img-6 { background: linear-gradient(135deg, #1a3a7a, #2e5acc); }
+  .story-body { background: white; padding: 1.2rem; }
+  .story-name { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--duke-blue); margin-bottom: 0.3rem; }
+  .story-season { font-size: 0.75rem; color: var(--gold); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .story-quote { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; font-style: italic; }
+
+  /* SPORTS */
+  #sports {
+    padding: 100px 5%;
+    background: var(--off-white);
+  }
+  .sports-grid {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 3rem;
+  }
+  .sport-card {
+    background: white; border-radius: 16px; padding: 1.5rem 1rem;
+    text-align: center; border: 1.5px solid var(--light-gray);
+    transition: all 0.3s; cursor: pointer;
+  }
+  .sport-card:hover, .sport-card.active {
+    border-color: var(--duke-blue); background: var(--duke-blue);
+    transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,48,135,0.2);
+  }
+  .sport-card:hover *, .sport-card.active * { color: white !important; }
+  .sport-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .sport-card h4 { font-size: 0.88rem; font-weight: 600; color: var(--duke-blue); }
+  .sport-card p { font-size: 0.75rem; color: var(--text-light); margin-top: 0.3rem; line-height: 1.4; }
+  .sport-card.add-more {
+    border-style: dashed; background: transparent;
+  }
+  .sport-card.add-more:hover { background: var(--off-white); border-color: var(--gold); transform: none; box-shadow: none; }
+  .sport-card.add-more:hover * { color: var(--duke-blue) !important; }
+  .sport-card.add-more h4 { color: var(--text-light); }
+
+  /* PARTNERS */
+  #partners {
+    padding: 80px 5%;
+    background: var(--white);
+    text-align: center;
+  }
+  .partners-grid {
+    display: flex; gap: 1.5rem; flex-wrap: wrap;
+    justify-content: center; margin-top: 3rem; align-items: center;
+  }
+  .partner-pill {
+    background: var(--off-white); border: 1px solid var(--light-gray);
+    border-radius: 50px; padding: 12px 24px;
+    font-size: 0.85rem; font-weight: 600; color: var(--text-mid);
+    transition: all 0.2s;
+  }
+  .partner-pill:hover { background: var(--duke-blue); color: white; border-color: var(--duke-blue); }
+
+  /* FOOTER */
+  footer {
+    background: var(--duke-blue-dark);
+    padding: 60px 5% 30px;
+    color: rgba(255,255,255,0.7);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif; color: white;
+    font-size: 1.2rem; margin-bottom: 1rem;
+  }
+  .footer-brand span { color: var(--gold); }
+  .footer-desc { font-size: 0.88rem; line-height: 1.7; margin-bottom: 1.5rem; }
+  .newsletter-form { display: flex; gap: 0.5rem; }
+  .newsletter-form input {
+    flex: 1; padding: 10px 16px; border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08);
+    color: white; font-size: 0.85rem; font-family: 'DM Sans', sans-serif;
+    outline: none;
+  }
+  .newsletter-form input::placeholder { color: rgba(255,255,255,0.4); }
+  .newsletter-form button {
+    padding: 10px 18px; border-radius: 30px; background: var(--gold);
+    color: var(--duke-blue); border: none; font-weight: 600; cursor: pointer;
+    font-size: 0.82rem; transition: background 0.2s;
+  }
+  .newsletter-form button:hover { background: var(--gold-light); }
+  .footer-col h5 { color: white; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.5rem; }
+  .footer-col ul li a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.8rem; color: rgba(255,255,255,0.4);
+  }
+  .social-links { display: flex; gap: 0.8rem; }
+  .social-link {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .social-link:hover { background: var(--gold); color: var(--duke-blue); border-color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up {
+    opacity: 0; transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .about-grid, .vol-tracks, .alumni-appeal,
+    .donor-tiers, .donor-options,
+    .stories-grid, .reach-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); bottom: 20px; }
+    .sports-grid { grid-template-columns: repeat(3, 1fr); }
+    .vol-path { flex-direction: column; gap: 2rem; }
+    .vol-path::before { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    .donor-tiers { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <span class="nav-crown">♛</span>
+    <div>Scheyer Family <span>Kid Captain</span></div>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#calendar">Events</a>
+    <a href="#volunteer">Volunteer</a>
+    <a href="#kidshub">Kids Hub</a>
+    <a href="#donors" class="nav-cta">Donate</a>
+  </div>
+  <div class="hamburger" onclick="document.querySelector('.nav-links').style.display='flex'">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Duke Children's Hospital × Duke Athletics</div>
+    <h1 class="hero-title">Every Child Deserves to Feel Like a <em>Champion.</em></h1>
+    <p class="hero-sub">The Scheyer Family Kid Captain Program honors pediatric patients at Duke Children's Hospital — bringing them onto the Cameron Indoor Stadium court, meeting Blue Devil players, and making them the star of the game.</p>
+    <div class="hero-btns">
+      <a href="#volunteer" class="btn-primary">Become a Volunteer</a>
+      <a href="#donors" class="btn-outline">Support a Kid</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="7">0</div>
+      <div class="hero-stat-label">Kid Captains Per Season</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="14">0</div>
+      <div class="hero-stat-label">Child Life Specialists</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="10">0</div>
+      <div class="hero-stat-label">Duke Sports Teams</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" data-target="3">0</div>
+      <div class="hero-stat-label">Years Running Strong</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid fade-up">
+    <div class="about-text">
+      <div class="section-eyebrow">The Program</div>
+      <h2 class="section-title">A Game Day Moment That Lasts a <em>Lifetime</em></h2>
+      <p>Selected pediatric patients at Duke Children's Hospital are honored as <strong>honorary Kid Captains</strong> at Duke Men's Basketball games. They walk onto the Cameron Indoor Stadium court, meet the players, hear their name in front of thousands of fans, and are celebrated as champions.</p>
+      <p>The program is powered by <strong>Holly and the Child Life Specialist team</strong> — advocates who walk with each child and family from arrival to departure. Each Kid Captain's experience is personalized: connecting the child's interests with a player's story, creating a memory unlike any other.</p>
+      <p>Currently, <strong>7–8 children are honored per season.</strong> Our mission is to dramatically expand that reach — to more kids, for longer, and through more Duke sports than just basketball.</p>
+      <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
+        <a href="#reach" class="btn-primary" style="font-size:0.9rem;padding:12px 24px;">See Our Expansion Plan</a>
+        <a href="#calendar" class="btn-outline" style="font-size:0.9rem;padding:12px 24px;color:var(--duke-blue);border-color:var(--duke-blue);">View Community Calendar</a>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-visual-inner">
+        <div class="about-visual-icon">🏀</div>
+        <div class="about-visual-text">Cameron Indoor Stadium</div>
+        <div class="about-visual-sub">Where Kids Become Champions</div>
+      </div>
+    </div>
+  </div>
+  <div class="mission-banner fade-up">
+    <h3>Our Objective: Scale Sustainably, Reach Further</h3>
+    <p>Expand the Scheyer Family Kid Captain Program by improving reach, deepening community partnerships in Durham, and creating year-round programming that keeps every child connected — not just on game day.</p>
+  </div>
+</section>
+
+<!-- REACH MORE KIDS -->
+<section id="reach">
+  <div class="fade-up" style="text-align:center;max-width:680px;margin:0 auto 1rem;">
+    <div class="section-eyebrow">Expanding Impact</div>
+    <h2 class="section-title">Reaching More Kids, For <em>Longer</em></h2>
+    <p style="color:var(--text-mid);font-size:1.05rem;line-height:1.7;">The game day moment is just the beginning. We're building year-round programming so every child at Duke Children's Hospital feels seen, celebrated, and connected to the Duke community.</p>
+  </div>
+  <div class="reach-grid fade-up">
+    <div class="reach-card">
+      <div class="reach-icon">📺</div>
+      <h4>Virtual Inclusion</h4>
+      <p>Children who can't physically attend games receive personalized video messages from players, are acknowledged during broadcasts, and are first in line for the following season's Kid Captain selection.</p>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon">🏈</div>
+      <h4>All Duke Sports</h4>
+      <p>Expanding beyond basketball to Duke Football (PT sessions), Women's Basketball, Lacrosse, and more. Every team can bring joy to the hospital — and we're making it easy for them to do so.</p>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon">📦</div>
+      <h4>Care Packages</h4>
+      <p>Kids who miss game day receive Duke Athletics care packages with signed memorabilia, team gear, and handwritten notes from players. No child is left uncelebrated.</p>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon">⛺</div>
+      <h4>Summer Camp & Field Days</h4>
+      <p>A "Scheyer Family Kid Captain Week" at Scheyer's basketball camp for kids who can afford it — with scholarship options for those who can't. Field days and outdoor activities on the hospital grounds for all.</p>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon">🏥</div>
+      <h4>Children's Health Center</h4>
+      <p>Expanding into the outpatient Children's Health Center (CHP) so that kids receiving ongoing care — not just inpatients — can participate in programming and feel part of the Duke family.</p>
+    </div>
+    <div class="reach-card">
+      <div class="reach-icon">🤝</div>
+      <h4>Durham Community Partnerships</h4>
+      <p>Partnering with the Boys & Girls Club, YMCA, Emily K Center, and local Durham organizations to bring programming beyond the hospital walls and into the broader community.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="fade-up">
+    <div class="section-eyebrow">Community Events</div>
+    <h2 class="section-title">What's Happening at the <em>Hospital</em></h2>
+    <p style="color:var(--text-mid);max-width:580px;line-height:1.7;margin-bottom:1rem;">Every event is an opportunity to make a child's day. Browse upcoming hospital visits, volunteer trainings, game days, and community events — then sign up.</p>
+  </div>
+  <div class="calendar-filters fade-up">
+    <button class="filter-btn active" onclick="filterEvents('all',this)">All Events</button>
+    <button class="filter-btn" onclick="filterEvents('hospital',this)">🏥 Hospital Visits</button>
+    <button class="filter-btn" onclick="filterEvents('training',this)">📋 Volunteer Training</button>
+    <button class="filter-btn" onclick="filterEvents('gameday',this)">🏀 Game Days</button>
+    <button class="filter-btn" onclick="filterEvents('community',this)">🌟 Community Events</button>
+  </div>
+  <div class="calendar-nav fade-up">
+    <button class="cal-arrow" onclick="changeMonth(-1)">&#8592;</button>
+    <div class="cal-month-title" id="calMonthTitle"></div>
+    <button class="cal-arrow" onclick="changeMonth(1)">&#8594;</button>
+  </div>
+  <div class="calendar-grid-header fade-up">
+    <div class="cal-day-name">Sun</div>
+    <div class="cal-day-name">Mon</div>
+    <div class="cal-day-name">Tue</div>
+    <div class="cal-day-name">Wed</div>
+    <div class="cal-day-name">Thu</div>
+    <div class="cal-day-name">Fri</div>
+    <div class="cal-day-name">Sat</div>
+  </div>
+  <div class="calendar-grid fade-up" id="calendarGrid"></div>
+  <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;" class="fade-up">
+    <span style="font-size:0.82rem;color:var(--text-light);display:flex;align-items:center;gap:6px;"><span class="cal-event event-hospital" style="display:inline-block;width:14px;height:14px;border-radius:3px;"></span>Hospital Visit</span>
+    <span style="font-size:0.82rem;color:var(--text-light);display:flex;align-items:center;gap:6px;"><span class="cal-event event-training" style="display:inline-block;width:14px;height:14px;border-radius:3px;"></span>Volunteer Training</span>
+    <span style="font-size:0.82rem;color:var(--text-light);display:flex;align-items:center;gap:6px;"><span class="cal-event event-gameday" style="display:inline-block;width:14px;height:14px;border-radius:3px;"></span>Game Day</span>
+    <span style="font-size:0.82rem;color:var(--text-light);display:flex;align-items:center;gap:6px;"><span class="cal-event event-community" style="display:inline-block;width:14px;height:14px;border-radius:3px;"></span>Community Event</span>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="fade-up">
+    <div class="section-eyebrow">Get Involved</div>
+    <h2 class="section-title">Your Path to Making a <em>Difference</em></h2>
+    <p class="vol-intro">You don't need to be a Duke athlete to change a child's day. Anyone can become a Kid Captain volunteer — it takes a 2-hour training and a heart for kids who are fighting hard battles.</p>
+  </div>
+  <div class="vol-path fade-up">
+    <div class="vol-step">
+      <div class="vol-step-num">1</div>
+      <h4>Fill Out the Interest Form</h4>
+      <p>Takes 2 minutes. Tell us a little about yourself and your interest in the program.</p>
+    </div>
+    <div class="vol-step">
+      <div class="vol-step-num">2</div>
+      <h4>Holly Reaches Out</h4>
+      <p>Holly (Child Life Specialist) or the volunteer coordinator will contact you within a week.</p>
+    </div>
+    <div class="vol-step">
+      <div class="vol-step-num">3</div>
+      <h4>Complete 2-Hour Training</h4>
+      <p>Offered in summer, fall, and winter. Learn hospital protocols, patient safety, and how to be a great volunteer.</p>
+    </div>
+    <div class="vol-step">
+      <div class="vol-step-num">4</div>
+      <h4>6-Month Commitment</h4>
+      <p>Join Monday playroom sessions at the hospital. Regular, consistent presence means everything to the kids.</p>
+    </div>
+    <div class="vol-step">
+      <div class="vol-step-num">5</div>
+      <h4>Join Special Events</h4>
+      <p>Participate in hospital visits, game day preparation, care package creation, and community field days.</p>
+    </div>
+  </div>
+  <div class="vol-tracks fade-up">
+    <div class="vol-track">
+      <span class="vol-track-badge badge-athlete">Duke Student Athletes</span>
+      <h4>Fast-Track Access</h4>
+      <p>Duke student athletes have a direct pathway to visit patients and participate in hospital events. Coordinate through your team's staff and the Duke Athletics volunteer manager. All sports welcome — not just basketball.</p>
+    </div>
+    <div class="vol-track">
+      <span class="vol-track-badge badge-community">Duke Students & Durham Community</span>
+      <h4>Community Volunteer Track</h4>
+      <p>Duke students and Durham community members are welcome! Complete the volunteer training (offered 3x per year), commit to 6 months of Monday sessions, and you'll be part of a growing movement to reach more kids.</p>
+    </div>
+  </div>
+  <div class="vol-cta fade-up">
+    <a href="mailto:sfkcp@duke.edu?subject=Volunteer Interest" class="btn-primary" style="font-size:1rem;padding:16px 40px;">Start My Volunteer Journey</a>
+  </div>
+</section>
+
+<!-- DONORS -->
+<section id="donors">
+  <div class="donor-hero-text fade-up">
+    <div class="section-eyebrow" style="display:block;text-align:center;margin:0 auto 1.2rem;">Support the Program</div>
+    <h2 class="section-title" style="text-align:center;">Duke Alumni: Your <em>Legacy</em> Lives Here</h2>
+    <p>Tens of thousands of Duke alumni carry Cameron Indoor Stadium in their hearts. Now you can channel that love into something that changes lives — giving pediatric patients at Duke Children's Hospital moments of joy, connection, and strength.</p>
+  </div>
+  <div class="donor-tiers fade-up">
+    <div class="donor-tier">
+      <span class="tier-badge">Entry Level</span>
+      <div class="tier-name">Blue Devil Supporter</div>
+      <div class="tier-amount">$500<span>+ / year</span></div>
+      <ul class="tier-features">
+        <li>Sponsor one care package for a child who can't attend a game</li>
+        <li>Name recognition in our annual impact report</li>
+        <li>Program updates via newsletter</li>
+        <li>Invitation to our annual community event</li>
+      </ul>
+      <a href="mailto:sfkcp@duke.edu?subject=Blue Devil Supporter Donation" class="btn-primary" style="width:100%;text-align:center;display:block;font-size:0.9rem;padding:12px;">Become a Supporter</a>
+    </div>
+    <div class="donor-tier featured">
+      <span class="tier-badge">Most Impactful</span>
+      <div class="tier-name">Cameron Insider</div>
+      <div class="tier-amount">$1,000<span>+ / year</span></div>
+      <ul class="tier-features">
+        <li>Sponsor an entire hospital visit or field day event</li>
+        <li>Behind-the-scenes access at a Kid Captain game day</li>
+        <li>Dedicated recognition at sponsored event</li>
+        <li>Annual impact report with your family's name</li>
+        <li>Meet Holly and the Child Life Specialist team</li>
+      </ul>
+      <a href="mailto:sfkcp@duke.edu?subject=Cameron Insider Donation" class="btn-primary" style="width:100%;text-align:center;display:block;font-size:0.9rem;padding:12px;">Become an Insider</a>
+    </div>
+    <div class="donor-tier">
+      <span class="tier-badge">3-Year Commitment</span>
+      <div class="tier-name">Iron Duke Partner</div>
+      <div class="tier-amount">$5,000<span>+ / year</span></div>
+      <ul class="tier-features">
+        <li>Name a Kid Captain season in honor of your family</li>
+        <li>Fund summer camp scholarships for children who can't afford to attend</li>
+        <li>Direct relationship with the program leadership team</li>
+        <li>Co-brand on event materials and digital platforms</li>
+        <li>3-year commitment builds lasting, sustainable impact</li>
+        <li>Priority access to corporate partnership opportunities</li>
+      </ul>
+      <a href="mailto:sfkcp@duke.edu?subject=Iron Duke Partner Inquiry" class="btn-primary" style="width:100%;text-align:center;display:block;font-size:0.9rem;padding:12px;">Become a Partner</a>
+    </div>
+  </div>
+
+  <div class="donor-options fade-up">
+    <div class="donor-option" onclick="alert('Ticket donation form coming soon! Contact sfkcp@duke.edu')">
+      <div class="donor-option-icon">🎟️</div>
+      <h4>Donate Game Tickets</h4>
+      <p>Can't make a game? Donate your Duke basketball tickets so Kid Captain families can bring more guests — a simple act with profound impact.</p>
+    </div>
+    <div class="donor-option" onclick="alert('Event sponsorship form coming soon! Contact sfkcp@duke.edu')">
+      <div class="donor-option-icon">🌟</div>
+      <h4>Sponsor an Event</h4>
+      <p>Directly fund a specific event — a hospital field day, craft session with athletes, or holiday celebration. Know exactly where your money goes.</p>
+    </div>
+    <div class="donor-option" onclick="alert('Durham business partnership form coming soon! Contact sfkcp@duke.edu')">
+      <div class="donor-option-icon">🏢</div>
+      <h4>Durham Business Partnership</h4>
+      <p>Local Durham businesses can partner through in-kind donations, event sponsorships, or employee volunteer programs. Together we make Durham stronger.</p>
+    </div>
+  </div>
+
+  <div class="alumni-appeal fade-up">
+    <div>
+      <h3>Scan to Give at Cameron Indoor Stadium</h3>
+      <p>During every Duke home game, seat slips feature a different Kid Captain's story and a QR code to donate. Be part of that moment when 9,000 fans become supporters of a child's journey.</p>
+      <a href="mailto:sfkcp@duke.edu?subject=Donation Inquiry" class="btn-primary" style="margin-top:1.5rem;display:inline-block;font-size:0.9rem;padding:12px 28px;">Make a Donation</a>
+    </div>
+    <div class="alumni-appeal-right">
+      <div class="qr-placeholder">
+        <div>QR Code<br>Placeholder<br>📱</div>
+      </div>
+      <p>Scan at any home game to support a Kid Captain</p>
+    </div>
+  </div>
+</section>
+
+<!-- KIDS HUB -->
+<section id="kidshub">
+  <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="section-eyebrow">Their Stories</div>
+    <h2 class="section-title">Meet Our Kid <em>Captains</em></h2>
+    <p style="color:var(--text-mid);font-size:1.05rem;line-height:1.7;margin-bottom:0.5rem;">Every child who walks that court carries something extraordinary. These are their moments.</p>
+  </div>
+  <div class="stories-grid fade-up">
+    <div class="story-card">
+      <div class="story-img story-img-1">🏀</div>
+      <div class="story-body">
+        <div class="story-season">2024–25 Season</div>
+        <div class="story-name">Marcus, Age 9</div>
+        <p class="story-quote">"He connected with Tyrese's story about perseverance. Tyrese visited him in the hospital — the video played at halftime to a standing ovation."</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-img story-img-2">🎷</div>
+      <div class="story-body">
+        <div class="story-season">2024–25 Season</div>
+        <div class="story-name">Amara, Age 11</div>
+        <p class="story-quote">"She plays saxophone. We arranged for her to play with the Cameron Indoor pep band before tip-off. She said it was the best day of her life."</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-img story-img-3">⭐</div>
+      <div class="story-body">
+        <div class="story-season">2023–24 Season</div>
+        <div class="story-name">Jaylen, Age 7</div>
+        <p class="story-quote">"A fighter through three surgeries. He wore the jersey. He walked the court. 9,000 fans gave him the loudest cheer Cameron has ever heard."</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-img story-img-4">🎨</div>
+      <div class="story-body">
+        <div class="story-season">2023–24 Season</div>
+        <div class="story-name">Sofia, Age 10</div>
+        <p class="story-quote">"Sofia loves art. A player sat with her during a craft session in the hospital playroom. Her drawing of the team hangs in the locker room."</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-img story-img-5">💙</div>
+      <div class="story-body">
+        <div class="story-season">2022–23 Season</div>
+        <div class="story-name">DeShawn, Age 13</div>
+        <p class="story-quote">"He'd watched every Duke game from his hospital bed for two years. That night, he didn't watch from a bed. He stood at center court."</p>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-img story-img-6">🌟</div>
+      <div class="story-body">
+        <div class="story-season">2022–23 Season</div>
+        <div class="story-name">Lily, Age 8</div>
+        <p class="story-quote">"Her family drove four hours. Her mom said 'I haven't seen her smile like that since before the diagnosis.' That's why we do this."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPORTS -->
+<section id="sports">
+  <div class="fade-up" style="text-align:center;max-width:600px;margin:0 auto;">
+    <div class="section-eyebrow">Beyond Basketball</div>
+    <h2 class="section-title">Every Blue Devil Can Make a <em>Difference</em></h2>
+    <p style="color:var(--text-mid);font-size:1.05rem;line-height:1.7;">We're opening the program to all Duke sports teams. Hospital visits, playroom sessions, field days — every team brings something unique to the kids.</p>
+  </div>
+  <div class="sports-grid fade-up">
+    <div class="sport-card active">
+      <div class="sport-icon">🏀</div>
+      <h4>Men's Basketball</h4>
+      <p>Founding sport. Dec 29 hospital visit + Kid Captain game days</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏀</div>
+      <h4>Women's Basketball</h4>
+      <p>Expanding game day experience to women's home games</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🏈</div>
+      <h4>Football</h4>
+      <p>Players join physical therapy sessions in the hospital — hugely popular with kids</p>
+    </div>
+    <div class="sport-card">
+      <div class="sport-icon">🥍</div>
+      <h4>Lacrosse</h4>
+      <p>Craft sessions and hospital visits. Incredible energy with the kids</p>
+    </div>
+    <div class="sport-card add-more" onclick="alert('Interested in bringing your team? Email sfkcp@duke.edu')">
+      <div class="sport-icon">➕</div>
+      <h4>Your Sport Here</h4>
+      <p>Any Duke team can get involved. Reach out to learn how.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="fade-up">
+    <div class="section-eyebrow" style="display:block;text-align:center;margin:0 auto 1.2rem;">Our Community</div>
+    <h2 class="section-title" style="text-align:center;">Partners Making It <em>Possible</em></h2>
+    <p style="color:var(--text-mid);max-width:500px;margin:0 auto;font-size:0.95rem;line-height:1.7;">We work with an incredible network of organizations committed to youth wellbeing in Durham and beyond.</p>
+  </div>
+  <div class="partners-grid fade-up">
+    <div class="partner-pill">Duke Children's Hospital</div>
+    <div class="partner-pill">Duke Athletics</div>
+    <div class="partner-pill">Duke Community Foundation</div>
+    <div class="partner-pill">Duke Pediatrics Foundation</div>
+    <div class="partner-pill">JDS Sports / SLAM Magazine</div>
+    <div class="partner-pill">Doers For Good</div>
+    <div class="partner-pill">Emily K Center</div>
+    <div class="partner-pill">Boys & Girls Club of Durham</div>
+    <div class="partner-pill">YMCA of the Triangle</div>
+    <div class="partner-pill">Iron Dukes</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Scheyer Family <span>Kid Captain</span> Program</div>
+      <p class="footer-desc">Honoring pediatric patients at Duke Children's Hospital by giving them a champion's welcome at Cameron Indoor Stadium — and building a year-round community that surrounds them with love.</p>
+      <div class="newsletter-form">
+        <input type="email" placeholder="Your email address">
+        <button>Subscribe</button>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Program</h5>
+      <ul>
+        <li><a href="#about">About SFKCP</a></li>
+        <li><a href="#kidshub">Kids Hub</a></li>
+        <li><a href="#reach">Our Expansion</a></li>
+        <li><a href="#sports">All Sports</a></li>
+        <li><a href="#partners">Partners</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Get Involved</h5>
+      <ul>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#calendar">Events Calendar</a></li>
+        <li><a href="mailto:sfkcp@duke.edu">Contact Holly</a></li>
+        <li><a href="#sports">Bring Your Team</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Support</h5>
+      <ul>
+        <li><a href="#donors">Donate</a></li>
+        <li><a href="#donors">Donor Tiers</a></li>
+        <li><a href="mailto:sfkcp@duke.edu">Ticket Donations</a></li>
+        <li><a href="mailto:sfkcp@duke.edu">Business Partnerships</a></li>
+        <li><a href="mailto:sfkcp@duke.edu">Event Sponsorship</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 Scheyer Family Kid Captain Program · Duke Children's Hospital · Durham, NC</div>
+    <div class="social-links">
+      <a href="#" class="social-link">𝕏</a>
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">ig</a>
+      <a href="#" class="social-link">fb</a>
+    </div>
+  </div>
+</footer>
+
+<!-- EVENT MODAL -->
+<div class="modal-overlay" id="eventModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-event-type" id="modalType"></span>
+    <h3 id="modalTitle"></h3>
+    <div class="modal-date" id="modalDate"></div>
+    <p id="modalDesc"></p>
+    <div class="modal-details" id="modalDetails"></div>
+    <a id="modalSignup" href="mailto:sfkcp@duke.edu" class="btn-primary" style="display:block;text-align:center;font-size:0.95rem;padding:14px;">Sign Up for This Event</a>
+  </div>
+</div>
+
+<script>
+// ---- CALENDAR ----
+const events = [
+  // Hospital visits (Mondays)
+  { type:'hospital', title:'Playroom Session', day:7, desc:'Weekly Monday playroom session at Duke Children\'s Hospital. Child Life Specialists and volunteers lead activities with pediatric patients.', time:'2:00 PM – 4:00 PM', location:'Duke Children\'s Hospital, Playroom Floor 5', req:'Volunteer training required' },
+  { type:'hospital', title:'Playroom Session', day:14, desc:'Weekly Monday playroom session at Duke Children\'s Hospital. Child Life Specialists and volunteers lead activities with pediatric patients.', time:'2:00 PM – 4:00 PM', location:'Duke Children\'s Hospital, Playroom Floor 5', req:'Volunteer training required' },
+  { type:'hospital', title:'Playroom Session', day:21, desc:'Weekly Monday playroom session at Duke Children\'s Hospital.', time:'2:00 PM – 4:00 PM', location:'Duke Children\'s Hospital, Playroom Floor 5', req:'Volunteer training required' },
+  { type:'hospital', title:'Playroom Session', day:28, desc:'Weekly Monday playroom session at Duke Children\'s Hospital.', time:'2:00 PM – 4:00 PM', location:'Duke Children\'s Hospital, Playroom Floor 5', req:'Volunteer training required' },
+  // Team visit
+  { type:'hospital', title:'Lacrosse Team Visit', day:16, desc:'Duke Lacrosse team visits pediatric patients for craft sessions and playtime. A favorite with the kids — athletes bring energy, laughter, and connection.', time:'10:00 AM – 12:00 PM', location:'Duke Children\'s Hospital', req:'Open to spectators with clearance' },
+  // Training
+  { type:'training', title:'Volunteer Orientation', day:5, desc:'New volunteer orientation session. Learn about patient safety protocols, how to interact with pediatric patients, and the role of the Kid Captain program.', time:'9:00 AM – 11:00 AM', location:'Duke Children\'s Hospital, Conference Room B', req:'Open to all new volunteers' },
+  { type:'training', title:'Volunteer Training', day:19, desc:'2-hour volunteer training session. Complete this training to gain clearance for Monday playroom sessions and hospital events.', time:'1:00 PM – 3:00 PM', location:'Duke Children\'s Hospital, Conference Room B', req:'Required for all new volunteers' },
+  // Game days
+  { type:'gameday', title:'Kid Captain Game Day 🏀', day:11, desc:'A pediatric patient is honored as Kid Captain at tonight\'s Duke Basketball home game. Experience the magic of Cameron Indoor Stadium as 9,000 fans cheer for one extraordinary child.', time:'6:00 PM Tip-Off', location:'Cameron Indoor Stadium', req:'Ticket required; Kid Captain families receive guest tickets' },
+  { type:'gameday', title:'Kid Captain Game Day 🏀', day:25, desc:'Another incredible Kid Captain moment. This month\'s honoree is a young Duke fan who has spent months at the hospital — tonight belongs to them.', time:'8:00 PM Tip-Off', location:'Cameron Indoor Stadium', req:'Ticket required' },
+  // Community
+  { type:'community', title:'Card Writing — Tenting', day:9, desc:'Join Duke students during tenting season to write cards and notes for current and past Kid Captains. A small gesture that means the world to families.', time:'12:00 PM – 2:00 PM', location:'Krzyzewskiville (K-Ville)', req:'Open to all Duke students and community members' },
+  { type:'community', title:'Field Day at Hospital', day:23, desc:'Outdoor field day activities on the hospital grounds for patients who can leave their rooms. Athletes, volunteers, and families gather for games, music, and joy.', time:'10:00 AM – 2:00 PM', location:'Duke Children\'s Hospital Courtyard', req:'Volunteer training required' },
+];
+
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
+let activeFilter = 'all';
+
+const monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+function renderCalendar() {
+  const grid = document.getElementById('calendarGrid');
+  const title = document.getElementById('calMonthTitle');
+  title.textContent = monthNames[currentMonth] + ' ' + currentYear;
+  grid.innerHTML = '';
+
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const daysInPrev = new Date(currentYear, currentMonth, 0).getDate();
+  const today = new Date();
+
+  let cells = [];
+  for (let i = firstDay - 1; i >= 0; i--) {
+    cells.push({ day: daysInPrev - i, current: false });
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    cells.push({ day: i, current: true });
+  }
+  while (cells.length % 7 !== 0) cells.push({ day: cells.length - daysInMonth - firstDay + 1, current: false });
+
+  cells.forEach(cell => {
+    const div = document.createElement('div');
+    div.className = 'cal-cell' + (cell.current ? '' : ' other-month');
+    if (cell.current && cell.day === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear()) {
+      div.classList.add('today');
+    }
+    const dateEl = document.createElement('div');
+    dateEl.className = 'cal-date';
+    dateEl.textContent = cell.day;
+    div.appendChild(dateEl);
+
+    if (cell.current) {
+      const dayEvents = events.filter(e => e.day === cell.day);
+      dayEvents.forEach(ev => {
+        if (activeFilter !== 'all' && ev.type !== activeFilter) return;
+        const evEl = document.createElement('span');
+        evEl.className = 'cal-event event-' + ev.type;
+        evEl.textContent = ev.title;
+        evEl.onclick = () => openModal(ev, cell.day);
+        div.appendChild(evEl);
+      });
+    }
+    grid.appendChild(div);
+  });
+}
+
+function changeMonth(dir) {
+  currentMonth += dir;
+  if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+  if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+  renderCalendar();
+}
+
+function filterEvents(type, btn) {
+  activeFilter = type;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderCalendar();
+}
+
+function openModal(ev, day) {
+  const typeLabels = { hospital:'🏥 Hospital Visit', training:'📋 Volunteer Training', gameday:'🏀 Game Day', community:'🌟 Community Event' };
+  const typeColors = { hospital:'event-hospital', training:'event-training', gameday:'event-gameday', community:'event-community' };
+  document.getElementById('modalType').textContent = typeLabels[ev.type];
+  document.getElementById('modalType').className = 'modal-event-type cal-event ' + typeColors[ev.type];
+  document.getElementById('modalTitle').textContent = ev.title;
+  document.getElementById('modalDate').textContent = monthNames[currentMonth] + ' ' + day + ', ' + currentYear;
+  document.getElementById('modalDesc').textContent = ev.desc;
+  document.getElementById('modalDetails').innerHTML = `
+    <div class="modal-detail-row"><strong>Time:</strong> ${ev.time}</div>
+    <div class="modal-detail-row"><strong>Location:</strong> ${ev.location}</div>
+    <div class="modal-detail-row"><strong>Requirements:</strong> ${ev.req}</div>
+  `;
+  document.getElementById('modalSignup').href = `mailto:sfkcp@duke.edu?subject=Sign Up: ${ev.title} on ${monthNames[currentMonth]} ${day}`;
+  document.getElementById('eventModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('eventModal').classList.remove('open');
+}
+
+// ---- COUNTER ANIMATION ----
+function animateCounter(el, target) {
+  let current = 0;
+  const step = Math.ceil(target / 40);
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.textContent = current + (target > 100 ? '+' : '');
+    if (current >= target) clearInterval(timer);
+  }, 40);
+}
+
+// ---- SCROLL ANIMATIONS ----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Counter observer
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.querySelectorAll('[data-target]').forEach(el => {
+        animateCounter(el, parseInt(el.dataset.target));
+      });
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) counterObserver.observe(heroStats);
+
+// ---- SPORT CARD TOGGLE ----
+document.querySelectorAll('.sport-card:not(.add-more)').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.sport-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+  });
+});
+
+// ---- INIT ----
+renderCalendar();
+</script>
+</body>
+</html>
