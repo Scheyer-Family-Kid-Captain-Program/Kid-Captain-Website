@@ -316,12 +316,9 @@ input:focus,select:focus,textarea:focus {
       </div>
     </a>
     <nav>
-      <a id="nav-home"      href="#home"      onclick="navigate('home');return false">Home</a>
-      <a id="nav-events"    href="#events"    onclick="navigate('events');return false">Calendar</a>
-      <a id="nav-partners"  href="#partners"  onclick="navigate('partners');return false">Partners</a>
-      <a id="nav-volunteer" href="#volunteer" onclick="navigate('volunteer');return false">Volunteer</a>
-      <a id="nav-donate"    href="#donate"    onclick="navigate('donate');return false">Donate</a>
-      <a id="nav-contact"   href="#contact"   onclick="navigate('contact');return false">Contact</a>
+      <a id="nav-home"    href="#home"    onclick="navigate('home');return false">Home</a>
+      <a id="nav-donate"  href="#donate"  onclick="navigate('donate');return false">Donate</a>
+      <a id="nav-contact" href="#contact" onclick="navigate('contact');return false">Contact</a>
     </nav>
   </div>
 </header>
@@ -334,7 +331,6 @@ input:focus,select:focus,textarea:focus {
       <h1>Scheyer Family<br>Kid Captain</h1>
       <p class="hero-tagline">&ldquo;Honoring the courage of the kids who inspire us all.&rdquo;</p>
       <div class="hero-btns">
-        <a href="#events"   class="btn btn-gold" onclick="navigate('events');return false">View Calendar</a>
         <a href="#donate"   class="btn btn-wht"  onclick="navigate('donate');return false">Donate</a>
         <a href="#contact"  class="btn btn-wht"  onclick="navigate('contact');return false">Contact Us</a>
       </div>
@@ -372,33 +368,7 @@ input:focus,select:focus,textarea:focus {
     </div>
   </div>
 
-  <div class="gallery-band">
-    <div class="gallery-inner">
-      <div class="sh-label">Kid Captain Moments</div>
-      <div class="gallery-scroll">
-        <div class="g-item">
-          <img src="static/skff2.jpeg" alt="Kid Captain with basketball">
-          <div class="g-caption">A Kid Captain receives a signed basketball at Cameron Indoor</div>
-        </div>
-        <div class="g-item">
-          <img src="static/sfkk3.jpeg" alt="Kid Captain with Duke mascot">
-          <div class="g-caption">Kid Captain celebrates on court with the Blue Devil mascot and cheerleaders</div>
-        </div>
-        <div class="g-item">
-          <img src="static/skff4.jpeg" alt="Kid Captain high-fiving Cameron Crazies">
-          <div class="g-caption">High-fives from the Cameron Crazies &mdash; a moment kids never forget</div>
-        </div>
-        <div class="g-item">
-          <img src="static/skff5.webp" alt="Signed Duke basketball">
-          <div class="g-caption">&ldquo;To Samantha &mdash; Dream Big! Go Duke!&rdquo; &mdash; Coach Scheyer</div>
-        </div>
-        <div class="g-item">
-          <img src="static/skff1.avif" alt="Kid Captain at Cameron">
-          <div class="g-caption">Every game, a child is honored as our Kid Captain at Cameron Indoor Stadium</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </div>
 
 <div class="page">
@@ -406,114 +376,14 @@ input:focus,select:focus,textarea:focus {
   <!-- HOME -->
   <div id="view-home" class="page-section">
     <div class="page-content">
-      <div style="margin-bottom:36px;margin-top:36px">
-        <div class="stats" id="home-stats"></div>
-      </div>
-      <div class="sh-label">Get Involved</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-bottom:0">
-        <div class="card" style="border-top:4px solid var(--blue)">
-          <h3>Event Calendar</h3>
-          <p style="color:var(--muted);font-size:.88rem;margin:7px 0 14px;line-height:1.5">Browse and sign up for upcoming events. Click any date to see what&rsquo;s on.</p>
-          <a href="#events" class="btn" onclick="navigate('events');return false">Open Calendar</a>
-        </div>
-        <div class="card" style="border-top:4px solid var(--blue)">
-          <h3>Durham Partners</h3>
-          <p style="color:var(--muted);font-size:.88rem;margin:7px 0 14px;line-height:1.5">Meet the Durham community organizations we work with to reach more kids.</p>
-          <a href="#partners" class="btn" onclick="navigate('partners');return false">View Partners</a>
-        </div>
-        <div class="card" style="border-top:4px solid var(--blue)">
-          <h3>Volunteer</h3>
-          <p style="color:var(--muted);font-size:.88rem;margin:7px 0 14px;line-height:1.5">Join our network of Duke students and Durham community volunteers.</p>
-          <a href="#volunteer" class="btn" onclick="navigate('volunteer');return false">Sign Up</a>
-        </div>
-        <div class="card" style="border-top:4px solid var(--gold)">
-          <h3>Donate</h3>
-          <p style="color:var(--muted);font-size:.88rem;margin:7px 0 14px;line-height:1.5">Your support helps bring more kids to Cameron and funds hospital programming.</p>
-          <a href="#donate" class="btn btn-gold" onclick="navigate('donate');return false">Give Now</a>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- EVENTS -->
-  <div id="view-events" class="page-section">
-    <div class="page-content">
-      <div class="sh-label" style="margin-top:32px">Event Calendar</div>
-      <p style="color:var(--muted);font-size:.88rem;margin-bottom:16px">Click any date to see events. Blue cells have scheduled events.</p>
-      <div id="calendar-container"></div>
-      <div class="sh-label" style="margin-top:32px">Upcoming Events</div>
-      <div id="events-list"></div>
+
     </div>
   </div>
 
   <!-- SIGNUP -->
   <div id="view-signup" class="page-section">
     <div id="signup-content"></div>
-  </div>
-
-  <!-- PARTNERS -->
-  <div id="view-partners" class="page-section">
-    <div class="page-content">
-      <div class="sh-label" style="margin-top:32px">Durham Community Partners</div>
-      <p style="color:var(--muted);margin-bottom:22px;font-size:.93rem;line-height:1.6">
-        These organizations help us expand the Kid Captain program beyond the hospital and into the broader Durham community.
-      </p>
-      <div class="p-grid" id="partners-grid" style="margin-bottom:28px"></div>
-      <div class="card" style="border-top:5px solid var(--gold)">
-        <h3>Partner With Us</h3>
-        <p style="color:var(--muted);font-size:.88rem;margin:8px 0 16px;line-height:1.55">
-          Is your Durham organization interested in collaborating? We&rsquo;re looking for partners in youth development, recreation, and community health.
-        </p>
-        <a href="#contact" class="btn" onclick="navigate('contact');return false">Get In Touch</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- VOLUNTEER -->
-  <div id="view-volunteer" class="page-section">
-    <div class="page-content">
-      <div id="volunteer-alert"></div>
-      <div class="sh-label" style="margin-top:32px">Volunteer &amp; Partner Sign-Up</div>
-      <p style="color:var(--muted);margin-bottom:22px;font-size:.93rem;line-height:1.6">
-        Volunteers complete a 2-hour training (offered each semester) to work with patients at Duke Children&rsquo;s Hospital.
-      </p>
-      <div class="form-row" style="margin-bottom:0">
-        <div class="card">
-          <form onsubmit="submitVolunteer(event)">
-            <label>Full Name</label>
-            <input name="name" required placeholder="Jane Smith">
-            <label>Email</label>
-            <input name="email" type="email" required placeholder="jane@example.com">
-            <label>Organization <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-            <input name="org" placeholder="Duke, Boys &amp; Girls Club, YMCA&hellip;">
-            <label>I&rsquo;m interested in&hellip;</label>
-            <select name="interest">
-              <option>Hospital volunteering (playroom, visits)</option>
-              <option>Event support (field day, community events)</option>
-              <option>Durham community partnership</option>
-              <option>Fundraising / donations</option>
-            </select>
-            <button class="btn" type="submit">Submit Interest</button>
-          </form>
-        </div>
-        <div>
-          <div class="card" style="border-top:5px solid var(--gold);margin-bottom:14px">
-            <h3>Training Schedule</h3>
-            <p style="color:var(--muted);font-size:.87rem;margin-top:7px;line-height:1.55">
-              2-hour orientation sessions run each semester (summer, fall, winter). Trained volunteers join Monday playroom sessions and special events.
-            </p>
-          </div>
-          <div class="card" style="border-top:5px solid var(--blue)">
-            <h3>Requirements</h3>
-            <ul style="color:var(--muted);font-size:.87rem;padding-left:18px;margin-top:7px;line-height:2">
-              <li>Current flu shot</li>
-              <li>Completed 2-hr volunteer training</li>
-              <li>Duke affiliation <em>or</em> partner organization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- DONATE -->
@@ -524,7 +394,6 @@ input:focus,select:focus,textarea:focus {
       <p style="color:var(--muted);margin-bottom:24px;font-size:.93rem;line-height:1.6">
         Your donation brings more children to Cameron Indoor, funds hospital visits, and grows programming across Durham.
       </p>
-      <div class="stats" id="donate-stats" style="margin-bottom:28px"></div>
       <div class="sh-label" style="font-size:1.05rem">Choose an Amount</div>
       <div class="tier-grid">
         <div class="tier" onclick="setAmt(25,this)"><div class="amt">$25</div><div class="perks">Craft supplies for one playroom session</div></div>
@@ -560,7 +429,7 @@ input:focus,select:focus,textarea:focus {
       <div id="contact-alert"></div>
       <div class="sh-label" style="margin-top:32px">Contact Us</div>
       <p style="color:var(--muted);margin-bottom:24px;font-size:.93rem;line-height:1.6">
-        Have a question about the program, want to get involved, or interested in partnering with us?
+        Have a question about the program or want to connect with us?
         We&rsquo;d love to hear from you.
       </p>
       <div class="form-row" style="align-items:start">
@@ -604,16 +473,12 @@ input:focus,select:focus,textarea:focus {
               <span class="ci-icon">&#128205;</span>
               <span>Duke Children&rsquo;s Hospital<br>Durham, North Carolina</span>
             </div>
-            <div class="contact-row">
-              <span class="ci-icon">&#128197;</span>
-              <span>Volunteer trainings held each semester.<br>New volunteers always welcome.</span>
-            </div>
+
           </div>
           <div class="card" style="border-top:5px solid var(--gold)">
             <h3>Quick Links</h3>
             <div style="display:flex;flex-direction:column;gap:8px;margin-top:10px">
-              <a href="#volunteer" class="btn btn-outline" style="text-align:center" onclick="navigate('volunteer');return false">Volunteer Sign-Up</a>
-              <a href="#donate"    class="btn btn-gold"    style="text-align:center" onclick="navigate('donate');return false">Donate</a>
+              <a href="#donate" class="btn btn-gold" style="text-align:center" onclick="navigate('donate');return false">Donate</a>
             </div>
           </div>
         </div>
@@ -638,7 +503,7 @@ input:focus,select:focus,textarea:focus {
 var eventsData = [
   {id:1, title:"Hospital Playroom Session", date:"2026-05-04", time:"10:00 AM",
    location:"Duke Children's Hospital \u2013 Playroom",
-   description:"Volunteer-led craft and play session for pediatric patients.",
+   description:"Craft and play session for pediatric patients.",
    spots:6, signups:[]},
   {id:2, title:"Cameron Indoor Field Day", date:"2026-05-17", time:"2:00 PM",
    location:"Cameron Indoor Stadium",
@@ -654,23 +519,6 @@ var eventsData = [
    spots:15, signups:[]}
 ];
 
-var partnersData = [
-  {name:"Duke Athletics",              type:"University Athletics", icon:"\uD83C\uDFDF\uFE0F",
-   focus:"Duke student athletes across all sports participate in hospital visits and community events", contact:"goduke.com"},
-  {name:"K-Ville",                     type:"Duke Tradition",       icon:"\u26FA",
-   focus:"Cameron Crazies tenting community supporting Kid Captains at Duke Basketball home games", contact:"duke.edu/kville"},
-  {name:"Durham Partnership for Service", type:"Community Service", icon:"\uD83C\uDF31",
-   focus:"Connecting Durham volunteers and organizations to meaningful service opportunities", contact:"durhampartnership.org"},
-  {name:"Doers for Good",              type:"Local Nonprofit",      icon:"\uD83E\uDD1D",
-   focus:"Youth development and community service across Durham", contact:"doersforgood.org"},
-  {name:"Emily K Center",              type:"Youth Development",    icon:"\uD83D\uDCDA",
-   focus:"Academic support and leadership for Durham youth", contact:"emilykcenter.org"},
-  {name:"Boys & Girls Club of Durham", type:"Youth Organization",   icon:"\uD83C\uDFC0",
-   focus:"After-school programming and mentorship for Durham kids", contact:"bgcdurham.org"},
-  {name:"Durham YMCA",                 type:"Community Center",     icon:"\uD83C\uDFC3",
-   focus:"Recreation, health, and youth programming across Durham", contact:"durhamymca.org"}
-];
-
 var donations = [];
 var contacts  = [];
 var calYear   = new Date().getFullYear();
@@ -682,21 +530,18 @@ function fmtMoney(n) {
 
 // ── NAVIGATION ────────────────────────────────────────────────────────────────
 
-var VIEWS = ['home','events','signup','partners','volunteer','donate','contact'];
+var VIEWS = ['home','signup','donate','contact'];
 
 function navigate(page) {
   VIEWS.forEach(function(v) {
     document.getElementById('view-' + v).classList.toggle('active', v === page);
   });
   document.getElementById('home-extra').classList.toggle('active', page === 'home');
-  ['home','events','partners','volunteer','donate','contact'].forEach(function(n) {
+  ['home','donate','contact'].forEach(function(n) {
     var el = document.getElementById('nav-' + n);
     if (el) el.classList.toggle('active', n === page);
   });
-  if (page === 'home')      renderHomeStats();
-  if (page === 'events')    renderEventsPage();
-  if (page === 'partners')  renderPartners();
-  if (page === 'donate')    renderDonateStats();
+
   window.scrollTo(0, 0);
 }
 
@@ -707,101 +552,8 @@ function showSignup(eventId) {
 
 // ── HOME ──────────────────────────────────────────────────────────────────────
 
-function renderHomeStats() {
-  var totalSignups = eventsData.reduce(function(s, e) { return s + e.signups.length; }, 0);
-  var totalRaised  = donations.reduce(function(s, d) { return s + d.amount; }, 0);
-  document.getElementById('home-stats').innerHTML =
-    stat(eventsData.length, 'Upcoming Events') +
-    stat(totalSignups, 'Sign-Ups') +
-    stat(partnersData.length, 'Durham Partners') +
-    stat(fmtMoney(totalRaised), 'Raised');
-}
-
 function stat(n, l) {
   return '<div class="stat-card"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>';
-}
-
-// ── EVENTS ────────────────────────────────────────────────────────────────────
-
-function renderEventsPage() {
-  document.getElementById('calendar-container').innerHTML = buildCalendar(calYear, calMonth);
-  var html = '';
-  eventsData.forEach(function(e) {
-    var spotsLeft = e.spots - e.signups.length;
-    var action = spotsLeft > 0
-      ? '<a href="#signup/' + e.id + '" class="btn" onclick="showSignup(' + e.id + ');return false">Sign Up (' + spotsLeft + ' left)</a>'
-      : '<span class="full-tag">Event full</span>';
-    html += '<div class="card"><h3>' + esc(e.title) + '</h3>'
-      + '<div class="meta">&#128197; ' + e.date + ' &nbsp; &#9201; ' + e.time + ' &nbsp; &#128205; ' + esc(e.location) + '</div>'
-      + '<p style="font-size:.88rem;color:var(--muted);margin-bottom:13px;line-height:1.55">' + esc(e.description) + '</p>'
-      + action + '</div>';
-  });
-  document.getElementById('events-list').innerHTML = html;
-}
-
-function navigateCalendar(year, month) {
-  calYear = year; calMonth = month;
-  document.getElementById('calendar-container').innerHTML = buildCalendar(year, month);
-}
-
-function buildCalendar(year, month) {
-  var firstDay    = new Date(year, month - 1, 1).getDay();
-  var daysInMonth = new Date(year, month, 0).getDate();
-  var today       = new Date();
-
-  var byDay = {};
-  eventsData.forEach(function(e) {
-    var d = new Date(e.date + 'T12:00:00');
-    if (d.getFullYear() === year && d.getMonth() + 1 === month) {
-      var day = d.getDate();
-      if (!byDay[day]) byDay[day] = [];
-      byDay[day].push(e);
-    }
-  });
-
-  var pm = month === 1 ? 12 : month - 1,  py = month === 1 ? year - 1 : year;
-  var nm = month === 12 ? 1 : month + 1,  ny = month === 12 ? year + 1 : year;
-  var monthNames = ['January','February','March','April','May','June',
-                    'July','August','September','October','November','December'];
-
-  var html = '<div class="cal-wrap">'
-    + '<div class="cal-nav">'
-    + '<a href="#" onclick="navigateCalendar(' + py + ',' + pm + ');return false">&#8592;</a>'
-    + '<span class="cal-month">' + monthNames[month - 1] + ' ' + year + '</span>'
-    + '<a href="#" onclick="navigateCalendar(' + ny + ',' + nm + ');return false">&#8594;</a>'
-    + '</div>'
-    + '<table class="cal-table"><thead><tr>'
-    + '<th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>'
-    + '</tr></thead><tbody>';
-
-  var cells = [];
-  for (var i = 0; i < firstDay; i++) cells.push(0);
-  for (var d = 1; d <= daysInMonth; d++) cells.push(d);
-  while (cells.length % 7 !== 0) cells.push(0);
-
-  for (var w = 0; w < cells.length / 7; w++) {
-    html += '<tr>';
-    for (var col = 0; col < 7; col++) {
-      var dayNum = cells[w * 7 + col];
-      if (dayNum === 0) {
-        html += '<td class="empty"></td>';
-      } else {
-        var dayEvs  = byDay[dayNum] || [];
-        var isToday = today.getFullYear() === year && today.getMonth() + 1 === month && today.getDate() === dayNum;
-        var ds  = year + '-' + pad(month) + '-' + pad(dayNum);
-        var cls = (isToday ? 'today ' : '') + (dayEvs.length > 0 ? 'has-ev' : '');
-        var pills = dayEvs.map(function(e) {
-          var t = e.title.length > 20 ? e.title.substring(0, 20) + '\u2026' : e.title;
-          return '<span class="ev-pill">' + esc(t) + '</span>';
-        }).join('');
-        html += '<td class="' + cls.trim() + '" onclick="openDay(\'' + ds + '\')">'
-          + '<div class="day-num">' + dayNum + '</div>' + pills + '</td>';
-      }
-    }
-    html += '</tr>';
-  }
-  html += '</tbody></table></div>';
-  return html;
 }
 
 // ── SIGNUP ────────────────────────────────────────────────────────────────────
@@ -822,12 +574,11 @@ function renderSignupForm(eventId, alertHtml) {
     + '<label>Email</label><input name="email" type="email" required placeholder="jane@duke.edu">'
     + '</div><div>'
     + '<label>Role</label><select name="role">'
-    + '<option>Volunteer</option><option>Attendee / Family</option>'
+    + '<option>Attendee / Family</option>'
     + '<option>Duke Athlete</option><option>Durham Community Partner</option>'
     + '</select></div></div>'
     + '<button class="btn" type="submit">Confirm Sign-Up</button>'
     + '</form></div>'
-    + '<a href="#events" onclick="navigate(\'events\');return false" style="color:var(--blue);font-weight:600;text-decoration:none">&#8592; Back to Calendar</a>'
     + '</div>';
 }
 
@@ -846,29 +597,8 @@ function submitSignup(e, eventId) {
   }
 }
 
-// ── PARTNERS ──────────────────────────────────────────────────────────────────
-
-function renderPartners() {
-  var html = '';
-  partnersData.forEach(function(p) {
-    html += '<div class="p-card">'
-      + '<div class="icon">' + p.icon + '</div>'
-      + '<h3>' + esc(p.name) + '</h3>'
-      + '<span class="badge">' + esc(p.type) + '</span>'
-      + '<p>' + esc(p.focus) + '</p>'
-      + '<div class="site">' + esc(p.contact) + '</div>'
-      + '</div>';
-  });
-  document.getElementById('partners-grid').innerHTML = html;
-}
-
 // ── DONATE ────────────────────────────────────────────────────────────────────
 
-function renderDonateStats() {
-  var total = donations.reduce(function(s, d) { return s + d.amount; }, 0);
-  document.getElementById('donate-stats').innerHTML =
-    stat(fmtMoney(total), 'Total Raised') + stat(donations.length, 'Donors');
-}
 
 function setAmt(v, el) {
   document.getElementById('amt').value = v;
@@ -892,17 +622,6 @@ function submitDonate(e) {
   } else {
     el.innerHTML = '<div class="alert a-err">Please fill in all fields with a valid amount.</div>';
   }
-}
-
-// ── VOLUNTEER ─────────────────────────────────────────────────────────────────
-
-function submitVolunteer(e) {
-  e.preventDefault();
-  var name  = e.target.name.value.trim();
-  var email = e.target.email.value.trim();
-  document.getElementById('volunteer-alert').innerHTML =
-    '<div class="alert a-ok">Thanks, <strong>' + esc(name) + '</strong>! We&rsquo;ll reach out to ' + esc(email) + ' about volunteer opportunities and training sessions.</div>';
-  e.target.reset();
 }
 
 // ── CONTACT ───────────────────────────────────────────────────────────────────
