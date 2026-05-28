@@ -372,12 +372,11 @@ _HEADER_TPL = """
   <div class="header-inner">
     <a href="/" class="brand">
       <div class="brand-logos">
-        <img src="/static/duke_logp.png" alt="Duke" style="height:46px;width:auto;border-radius:5px">
-        <img src="/static/sheyer.avif"   alt="SFKCP" style="height:46px;width:auto;border-radius:50%">
+        <img src="/static/sheyer.avif" alt="SFKCP" style="height:46px;width:auto;border-radius:50%">
       </div>
       <div class="brand-text">
         <div class="brand-name">Scheyer Family Kid Captain Program</div>
-        <div class="brand-sub">Duke Athletics &middot; Durham Community</div>
+        <div class="brand-sub">Durham Community</div>
       </div>
     </a>
     <nav>
