@@ -394,13 +394,7 @@ input:focus,select:focus,textarea:focus {
       <p style="color:var(--muted);margin-bottom:24px;font-size:.93rem;line-height:1.6">
         Your donation brings more children to Cameron Indoor, funds hospital visits, and grows programming across Durham.
       </p>
-      <div class="sh-label" style="font-size:1.05rem">Choose an Amount</div>
-      <div class="tier-grid">
-        <div class="tier" onclick="setAmt(25,this)"><div class="amt">$25</div><div class="perks">Craft supplies for one playroom session</div></div>
-        <div class="tier" onclick="setAmt(100,this)"><div class="amt">$100</div><div class="perks">Game-day tickets for one Kid Captain family</div></div>
-        <div class="tier featured" onclick="setAmt(500,this)"><div class="amt">$500</div><div class="perks">&#11088; Sponsor a full hospital visit event</div></div>
-        <div class="tier" onclick="setAmt(1000,this)"><div class="amt">$1,000</div><div class="perks">Fund a semester of playroom sessions</div></div>
-      </div>
+      <!-- Choose an Amount removed per request -->
       <div class="card">
         <form onsubmit="submitDonate(event)">
           <div class="form-row">
@@ -601,9 +595,7 @@ function submitSignup(e, eventId) {
 
 
 function setAmt(v, el) {
-  document.getElementById('amt').value = v;
-  document.querySelectorAll('.tier').forEach(function(t) { t.classList.remove('sel'); });
-  el.classList.add('sel');
+  // preset amount UI removed; function retained as noop for compatibility
 }
 
 function submitDonate(e) {
